@@ -6,6 +6,9 @@
     <div class="max-w-xl">
       <div class="mt-8 flex items-center gap-x-4 text-xs">
         <time datetime="2020-03-16" class="text-gray-500">{{ $post->created_at->format("d M Y") }}</time>
+          @if($post->promoted)
+              <span>Promoted</span>
+          @endif
       </div>
       <div class="group relative">
         <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
@@ -24,6 +27,7 @@
               {{ $post->author->name }}
             </a>
           </p>
+            <span>Published on: {{ $post->published_at->format('F j, Y, g:i a') }}</span>
         </div>
       </div>
     </div>

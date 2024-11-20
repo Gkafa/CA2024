@@ -13,10 +13,15 @@ class Post extends Model
 
     protected $casts = [
         'published_at' => 'datetime',
+        'promoted'=> 'boolean',
     ];
 
     public function author()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }
