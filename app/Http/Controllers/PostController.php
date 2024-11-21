@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
+
     public function index(User $user = null)
     {
         $posts = Post::when($user, function ($query) use ($user) {
@@ -22,7 +24,7 @@ class PostController extends Controller
 
         $users = User::whereHas('posts', function ($query) {
             $query->
-            where('status', 'published');
+            whereNotNull('published_at');
         })->get();
 
         return view('posts.index', compact('posts', 'users'));
@@ -68,6 +70,6 @@ class PostController extends Controller
     public function deleteComment(Comment $comment){
         $comment->delete();
         return redirect()->route('post', $comment->post)
-            ->with('success', 'Comment added successfully.');
+            ->with('success', 'Comment deleted successfully.');
     }
 }

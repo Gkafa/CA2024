@@ -199,7 +199,7 @@ class BlogTest extends TestCase
             ->assertDontSee($user3->name);
     }
 
-        /**
+    /**
      * Ensure that the promoted posts page contains only promoted posts.
      */
     public function testPromotedPostsPageContainsOnlyPromotedPosts()

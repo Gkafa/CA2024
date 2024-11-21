@@ -26,5 +26,12 @@
             </div>
         </div>
     </div>
+@endsection
 
+@section('authors')
+    <section id="authors">
+        @foreach($users as $user)
+            <p>{{ $user->name }}</p> <!-- Display each author's name -->
+        @endforeach
+    </section>
 @endsection

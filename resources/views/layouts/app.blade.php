@@ -9,5 +9,6 @@
 <body>
     <x-header />
     @yield('content')
+    @yield('authors')
 </body>
 </html>

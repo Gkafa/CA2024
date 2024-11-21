@@ -19,7 +19,7 @@ Route::get('/posts/{post:slug}', [PostController::class, 'show'])
 Route::get('/authors/{user}', [PostController::class, 'index'])
     ->name('author');
 
-Route::delete('/comment/{comment}}', [PostController::class, 'deleteComment'])
+Route::delete('/comment/{comment}', [PostController::class, 'deleteComment'])
     ->name('comment.delete');
 
 Route::post('/posts/{post}/comments', [PostController::class, 'storeComment'])
