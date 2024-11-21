@@ -31,7 +31,7 @@
 @section('authors')
     <section id="authors">
         @foreach($users as $user)
-            <p>{{ $user->name }}</p> <!-- Display each author's name -->
+            <p>{{ $user->name }}</p>
         @endforeach
     </section>
 @endsection

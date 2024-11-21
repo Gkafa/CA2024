@@ -210,14 +210,12 @@ class BlogTest extends TestCase
             'user_id' => $user->id,
             'published_at' => now()->subDay(),
             'promoted' => true,
-            'image' => 'image.jpg',
         ]);
 
         $unpromotedPost = Post::factory()->create([
             'user_id' => $user->id,
             'published_at' => now()->subDay(),
             'promoted' => false,
-            'image' => 'image.jpg',
         ]);
 
         $response = $this->get('/promoted');

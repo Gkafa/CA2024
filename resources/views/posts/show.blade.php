@@ -20,26 +20,17 @@
         </div>
     </div>
     <div>
-
-    </div>
-
-    <div>
         @foreach($post->comments as $comment)
             <div>{{ $comment->body }} from {{ $comment->name }}</div>
             <div>{{ $comment->created_at->diffForHumans() }}</div>
             <form action="{{ route('comment.delete', $comment->id) }}" method="POST">
-                @csrf  <!-- CSRF token for security -->
-                @method('DELETE')  <!-- This tells Laravel to treat the form as a DELETE request -->
-
-                <button type="submit" class="btn btn-danger">Delete</button>  <!-- Button to submit the form -->
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Delete</button>
             </form>
 
         @endforeach
     </div>
-
-{{--    @section("authors")--}}
-{{--    @show--}}
-    <!-- resources/views/posts/show.blade.php -->
     <form id="comment-form" action="{{ route('comment', $post->id) }}" method="POST">
         @csrf
         <div>
@@ -56,5 +47,4 @@
             <button type="submit">Post Comment</button>
         </div>
     </form>
-
 @endsection

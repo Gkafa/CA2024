@@ -60,10 +60,10 @@ class PostController extends Controller
         if (!$post->published_at) {
             abort(404);
         }
-//        $poster = Post::with('comments')->findOrFail($post->$id);
+
         $post->load(['comments' => function ($query) {
-            $query->orderBy('created_at', 'desc');  // Order comments by 'created_at' in descending order
-        }, 'comments.user']);
+            $query->orderBy('created_at', 'desc');
+        }]);
         return view('posts.show', compact('post'));
     }
 
