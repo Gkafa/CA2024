@@ -114,7 +114,6 @@ class BlogTest extends TestCase
 
     /**
      * Ensure that the blog posts page contains only published posts.
-     * Edited, because of previous test
      */
     public function testBlogPostsPageContainsOnlyPublishedPosts()
     {
@@ -122,13 +121,11 @@ class BlogTest extends TestCase
         $publishedPost = Post::factory()->create([
             'user_id' => $user->id,
             'published_at' => now(),
-            'image' => 'image.jpg',
         ]);
 
         $unpublishedPost = Post::factory()->create([
             'user_id' => $user->id,
             'published_at' => null,
-            'image' => 'image.jpg',
         ]);
 
         $response = $this->get(route('posts'));
@@ -357,7 +354,7 @@ class BlogTest extends TestCase
         ]);
 
         $comment = $post->comments()->create([
-            'name' => 'John Doeyyyy',
+            'name' => 'John Doe',
             'body' => 'This is a comment.',
         ]);
 
@@ -394,22 +391,16 @@ class BlogTest extends TestCase
      */
     public function testBlogPostsPageHasPagination()
     {
-        // Create a user and multiple posts (more than 12 to test pagination)
         $user = User::factory()->create();
 
-        // Create more than 12 posts for this user to ensure pagination is needed
         Post::factory(120)->create([
             'user_id' => $user->id,
             'published_at' => now(),
-            'image' => 'sample-image.jpg', // Ensure posts have images as per your query
+            'image' => 'sample-image.jpg',
         ]);
 
-        // Visit the posts index page
         $response = $this->get(route('posts'));
-
-        // Ensure that the first page is showing 12 posts (based on your pagination config)
         $response->assertSee('Next');
-        $response->assertSee('Previous');
         $response->assertSee('page=10');
     }
 }

@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2>All Posts</h2>
 
-    <a href="{{ route('posts.promoted') }}" class="btn btn-primary">View Promoted Posts</a>
+    <a href="{{ route('posts.promoted') }}" class="btn btn-primary text-sm/6 font-semibold text-gray-900 p-6 md:ml-80">View Promoted Posts</a>
 
     <div class="bg-white py-24 sm:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -30,8 +29,18 @@
 
 @section('authors')
     <section id="authors">
-        @foreach($users as $user)
-            <p>{{ $user->name }}</p>
-        @endforeach
+        <div class="mx-auto max-w-2xl text-center">
+            <h2 class="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl mb-12">Our Authors</h2>
+        </div>
+        <div class="overflow-hidden whitespace-nowrap mb-12">
+            <div class="flex animate-marquee space-x-8">
+                @foreach($users as $user)
+                    <p class="text-lg font-semibold text-gray-700">{{ $user->name }}</p>
+                    @if (!$loop->last)
+                        <span class="text-lg font-semibold text-gray-700">, </span>
+                    @endif
+                @endforeach
+            </div>
+        </div>
     </section>
 @endsection
