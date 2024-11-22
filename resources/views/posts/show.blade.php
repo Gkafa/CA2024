@@ -35,18 +35,18 @@
             </form>
         @endforeach
     </div>
-    <form id="comment-form" action="{{ route('comment', $post->id) }}" method="POST" class="bg-gray-50 p-6 rounded-lg shadow-md max-w-lg mx-auto">
+    <form id="comment-form" action="{{ route('comment', $post->id) }}" method="POST" class="bg-gray-50 p-6 rounded-lg shadow-md max-w-3xl mx-auto">
         @csrf
         <div class="mb-6">
             <label for="name" class="block text-lg font-semibold text-gray-700 mb-2">Your Name</label>
-            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <input type="text" name="name" id="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent">
         </div>
         <div class="mb-6">
             <label for="body" class="block text-lg font-semibold text-gray-700 mb-2">Your Comment</label>
-            <textarea id="body" name="body" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent h-32 resize-none"></textarea>
+            <textarea name="body" id="body" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent h-32 resize-none"></textarea>
         </div>
         <div>
-            <button type="submit" class="w-full py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-gray-600 transition-colors">Post Comment</button>
+            <button type="submit" class="w-full py-3 bg-gray-400 text-black dark:hover:text-white font-semibold rounded-md hover:bg-gray-600 transition-colors">Post Comment</button>
         </div>
     </form>
 @endsection

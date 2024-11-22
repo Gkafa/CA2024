@@ -2,8 +2,6 @@
 
 @section('content')
 
-    <a href="{{ route('posts.promoted') }}" class="btn btn-primary text-sm/6 font-semibold text-gray-900 p-6 md:ml-80">View Promoted Posts</a>
-
     <div class="bg-white py-24 sm:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl text-center">
