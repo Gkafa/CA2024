@@ -11,6 +11,15 @@ export default {
     ],
     theme: {
         extend: {
+            animation: {
+                marquee: 'marquee 15s linear infinite',  // 10s is the duration of the scroll
+            },
+            keyframes: {
+                marquee: {
+                    '0%': {transform: 'translateX(100%)'},
+                    '100%': {transform: 'translateX(-100%)'},
+                },
+            },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },

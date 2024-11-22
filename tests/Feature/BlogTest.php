@@ -196,7 +196,7 @@ class BlogTest extends TestCase
             ->assertDontSee($user3->name);
     }
 
-        /**
+    /**
      * Ensure that the promoted posts page contains only promoted posts.
      */
     public function testPromotedPostsPageContainsOnlyPromotedPosts()
@@ -391,6 +391,16 @@ class BlogTest extends TestCase
      */
     public function testBlogPostsPageHasPagination()
     {
-        $this->markTestIncomplete();
+        $user = User::factory()->create();
+
+        Post::factory(120)->create([
+            'user_id' => $user->id,
+            'published_at' => now(),
+            'image' => 'sample-image.jpg',
+        ]);
+
+        $response = $this->get(route('posts'));
+        $response->assertSee('Next');
+        $response->assertSee('page=10');
     }
 }
